@@ -1,0 +1,11 @@
+_target_: src.models.retriever_model.Retriever
+
+lr: 5e-05
+weight_decay: 0.0005
+num_negatives: 25248
+encoder_momentum: 0.999
+softmax_temperature: 0.25
+batch_size: 16
+num_workers: 4
+max_epochs: 2
+warmup_ratio: 0.1

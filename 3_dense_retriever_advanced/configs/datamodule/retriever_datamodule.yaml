@@ -1,0 +1,6 @@
+_target_: src.datamodules.retriever_datamodule.RetrieverDataModule
+
+data_dir: ${data_dir}  # data_dir is specified in config.yaml
+batch_size: 8
+num_workers: 4
+pin_memory: False

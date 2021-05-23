@@ -1,0 +1,9 @@
+_target_: src.datamodules.qa_datamodule.QADataModule
+
+data_dir: ${data_dir}  # data_dir is specified in config.yaml
+batch_size: 8
+num_workers: 4
+pin_memory: False
+max_source_length: 1024
+max_target_length: 128
+padding: False

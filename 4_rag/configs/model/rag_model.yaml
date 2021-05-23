@@ -1,0 +1,23 @@
+_target_: src.models.rag_model.Rag
+
+encoder_model_name: "monologg/koelectra-small-v3-discriminator"
+index_path: "/opt/ml/input/data/data/my_wikipedia_1/index"
+passages_path: "/opt/ml/input/data/data/my_wikipedia_1"
+encoder_path: "/opt/ml/code/pytorch_lightning_examples/3_RETRIEVER/logs/runs/2021-05-18/18-56-43/checkpoints/epoch=27.ckpt"
+generator_path: "/opt/ml/code/pytorch_lightning_examples/2_QA/logs/runs/2021-05-14/15-36-30/checkpoints/last.ckpt"
+retrieval_batch_size: 1
+train_batch_size: 1
+eval_batch_size: 1
+n_docs: 32
+max_target_length: 20
+max_source_length: 64
+val_max_target_length: 20
+num_workers: 4
+max_epochs: 30
+accumulate_grad_batches: 32
+lr_scheduler: "cosine"
+warmup_steps: 10
+weight_decay: 0.0005
+learning_rate: 5e-5
+adam_epsilon: 1e-8
+output_dir: "./outputs"

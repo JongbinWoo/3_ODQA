@@ -1,0 +1,9 @@
+_target_: src.models.retriever_model.DualEncoder
+
+lr: 5e-5
+weight_decay: 0.0005
+batch_size: 32
+num_workers: 5
+max_epochs: 10
+warmup_ratio: 0.1
+softmax_temperature: 0.25

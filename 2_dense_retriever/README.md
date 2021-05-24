@@ -16,7 +16,7 @@
 - huggingface datasets를 이용한 데이터 전처리 및 데이터셋 구성
 
 
-Train model with default configuration
+
 ```yaml
 # default
 python run.py

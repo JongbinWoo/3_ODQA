@@ -14,7 +14,6 @@
 - 전체 document embedding을 저장해놓은 상태에서 학습함으로서 question embedding을 학습할때 negative sample의 크기를 최대로 키웠다.
 
 
-Train model with default configuration
 ```yaml
 # default
 python run.py

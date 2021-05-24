@@ -14,7 +14,6 @@
 [kobart](https://github.com/SKT-AI/KoBART) 를 koquad+klue 데이터셋에 fine-tuning하여 Question Answering
 
 
-Train model with default configuration
 ```yaml
 # default
 python run.py

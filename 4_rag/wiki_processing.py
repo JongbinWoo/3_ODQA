@@ -16,7 +16,6 @@ retriever = DualEncoder.load_from_checkpoint('/opt/ml/code/pytorch_lightning_exa
 ctx_encoder = retriever.to('cuda')
 MODEL_NAME = "monologg/koelectra-small-v3-discriminator"
 ctx_tokenizer = ElectraTokenizer.from_pretrained(MODEL_NAME)
-# added_token_num = ctx_tokenizer.add_special_tokens({"additional_special_tokens":["제목:", "글:"]})
 
 #%%
 new_features = Features(
@@ -44,38 +43,3 @@ index_dataset.save_to_disk('/opt/ml/input/data/data/my_wikipedia_1')
 index = faiss.IndexHNSWFlat(256, 128, faiss.METRIC_INNER_PRODUCT)
 index_dataset.add_faiss_index("embeddings", custom_index=index)
 index_dataset.get_index("embeddings").save('/opt/ml/input/data/data/my_wikipedia_1/index')
-# %%
-# from datasets import load_from_disk
-# dataset = load_from_disk('/opt//ml/input/data/data/my_wikipedia')
-# %%
-# from datasets import load_from_disk
-# index_dataset = load_from_disk('/opt/ml/input/data/data/my_wikipedia')
-# def get_length(example):
-#     example['len'] = len(example['text'])
-
-# index_dataset = index_dataset.map(get_length, keep_in_memory=False)
-# # %%
-
-
-
-# def split_documents(documents: dict) -> dict:
-#     """Split documents into passages"""
-#     titles, texts = [], []
-#     for title, text in zip(documents["title"], documents["text"]):
-#         # title = '제목: ' + title + ' '
-#         if text is not None:
-#             for passage in split_text(text):
-#                 titles.append(title if title is not None else "")
-#                 texts.append(passage)
-#     return {
-#         "title": titles,
-#         "text": texts,
-#     }
-
-# def split_text(text: str, n=100, character=" ") -> List[str]:
-#     """Split the text every ``n``-th occurrence of ``character``"""
-#     text = text.split(character)
-#     result = []
-#     for i in range(0, len(text), n):
-#         result.append(character.join(text[i: i+n]).strip())
-#     return result
